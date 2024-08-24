@@ -2,7 +2,7 @@
 namespace Controllers;
 use MVC\Router;
 use Model\Usuario;
-use Classes\Email;
+use Classes\Emails;
 
 class LoginControllers{
     public static function login(Router $router){
@@ -54,7 +54,7 @@ class LoginControllers{
                     if($usuario->confirmado === '1'){
                         $usuario->crearToken();
                         $usuario->guardar();
-                        $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                        $email = new Emails($usuario->email, $usuario->nombre, $usuario->token);
                         $email->enviarInstrucciones();
                         Usuario::setAlerta('exito', 'Hemos enviado un correo a tu email');
                     }else{
@@ -114,7 +114,7 @@ class LoginControllers{
                 }else{
                     $usuario->hashPassword();
                     $usuario->crearToken();
-                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email = new Emails($usuario->email, $usuario->nombre, $usuario->token);
                     $email->enviarConfirmacion();
                     $resultado = $usuario->guardar();
                     if($resultado){
