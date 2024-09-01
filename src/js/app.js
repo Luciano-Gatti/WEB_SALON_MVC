@@ -149,6 +149,8 @@ function seleccionarServicio(servicio){
         cita.servicios = [...servicios, servicio];
         divServicio.classList.add('seleccionado');
     }
+    
+    console.log(servicios);
 }
 
 function nombreCliente(){
