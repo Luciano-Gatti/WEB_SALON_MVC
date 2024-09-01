@@ -141,7 +141,6 @@ function seleccionarServicio(servicio){
     const {id} = servicio;
     const {servicios} = cita;
     const divServicio = document.querySelector(`[data-id-servicio="${id}"]`);
-
     if(servicios.some(agregado=> agregado.id === id)){
         cita.servicios = servicios.filter(agregado=> agregado.id !== id);
         divServicio.classList.remove('seleccionado');
@@ -149,8 +148,6 @@ function seleccionarServicio(servicio){
         cita.servicios = [...servicios, servicio];
         divServicio.classList.add('seleccionado');
     }
-    
-    console.log(servicios);
 }
 
 function nombreCliente(){
