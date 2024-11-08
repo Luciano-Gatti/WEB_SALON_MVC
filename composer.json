@@ -1,5 +1,5 @@
 {
-    "name": "lucia/app_salon",
+    "name": "lucianogatti/app_salon",
     "description": "Proyecto con PHP, MVC, SASS, GULP, SQL",
     "type": "project",
     "autoload": {
